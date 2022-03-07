@@ -1,7 +1,7 @@
 # school-timetable-generator
 課表生成器
 
-**python環境須為python10**
+**python環境須為python3.10**
 
 1. 將main.py下載
 2. 將nfu ecare內的選課結果複製後以下面格式儲存成txt檔案
