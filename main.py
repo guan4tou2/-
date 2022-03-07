@@ -1,12 +1,15 @@
-import re,sys
+import re
+import sys
 
 classtime = ['', '', '第一節<br>8:10~9:00', ' 第二節<br>9:10~10:00', ' 第三節<br>10:10~11:00', ' 第四節<br>11:10~12:00', '中午<br>12:00~13:20',
              ' 第五節<br>13:20~14:10', ' 第六節<br>14:20~15:10', ' 第七節<br>15:20~16:10', ' 第八節<br>16:20~17:10', ' 第九節<br>17:20~18:10']
 week = ['一', '二', '三', '四', '五']
 classlist = []
+color = ['#bda642', '#4542f5', '#ff00ff']  # '必修' '選修' '通識'
+
 
 if len(sys.argv) == 2:
-    fileName=sys.argv[1]
+    fileName = sys.argv[1]
     if not bool(re.search(r'\w*.txt', fileName)):
         print("副檔名須為txt")
         sys.exit()
@@ -22,12 +25,13 @@ if len(sys.argv) == 2:
         classlist[1][i] = ':------------:'
 
     with open(fileName, 'r', encoding='utf-8') as f:
-        if f.readline()!="順序	當期課號	修課班級	科目名稱	選別	學分	時數	授課老師	教室	上課星期/節次(*表衝堂)\n":
+        if f.readline() != "順序	當期課號	修課班級	科目名稱	選別	學分	時數	授課老師	教室	上課星期/節次(*表衝堂)\n":
             print("資料格式錯誤")
             sys.exit()
         for i in f:
             data = i.split()
             classname, teacher, classnum = data[3], data[7], data[8]
+            types = 0 if data[4]=='必修' else 1 if data[4]=='選修' else 2
             day_time = re.findall(r'\w/\d', i)
             for j in day_time:
                 day, t = j.split('/')
@@ -37,19 +41,19 @@ if len(sys.argv) == 2:
                 match day:
                     case '一':
                         classlist[t +
-                                1][1] = f'{classname}<br>{teacher}<br>{classnum}'
+                                  1][1] = f'<font color={color[types]}>{classname}<br>{teacher}<br>{classnum}</font>'
                     case '二':
                         classlist[t +
-                                1][2] = f'{classname}<br>{teacher}<br>{classnum}'
+                                  1][2] = f'<font color={color[types]}>{classname}<br>{teacher}<br>{classnum}</font>'
                     case '三':
                         classlist[t +
-                                1][3] = f'{classname}<br>{teacher}<br>{classnum}'
+                                  1][3] = f'<font color={color[types]}>{classname}<br>{teacher}<br>{classnum}</font>'
                     case '四':
                         classlist[t +
-                                1][4] = f'{classname}<br>{teacher}<br>{classnum}'
+                                  1][4] = f'<font color={color[types]}>{classname}<br>{teacher}<br>{classnum}</font>'
                     case '五':
                         classlist[t +
-                                1][5] = f'{classname}<br>{teacher}<br>{classnum}'
+                                  1][5] = f'<font color={color[types]}>{classname}<br>{teacher}<br>{classnum}</font>'
 
     with open('out.md', 'w', encoding='utf-8') as f:
         for i in classlist:
