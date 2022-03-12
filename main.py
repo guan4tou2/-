@@ -28,9 +28,9 @@ if len(sys.argv) == 2:
     with open(fileName, 'r', encoding='utf-8') as f:
         filedata=f.read()
 
-    fildeData=re.findall(regex, filedata)
+    fileData=re.findall(regex, filedata)
     
-    for data in fildeData:
+    for data in fileData:
         classname, teacher, classnum = data[0], data[2], data[3]
         types = 0 if data[1]=='必修' else 1 if data[1]=='選修' else 2
         day_time = re.findall(r'\w/\d', data[4])
