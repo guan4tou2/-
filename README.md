@@ -29,7 +29,7 @@ ClassWeek/Period(*Indicating Class Conflict)
 1. 將common.py下載
 2. 修改color內的hex色碼可更改課程種類的顏色，可添加或刪減grades與color的內容
 3. 將使用main.py做出的課表檔案改名為`姓名_年級.md`的格式，年級為大幾or碩幾
-4. 檔案存放於同一目錄底下後，`python main.py 姓名_年級.md 姓名_年級.md`，輸入檔案可輸入多個
-5. 若已有輸出檔案可改為`python main.py out.md 姓名_年級.md`
+4. 檔案存放於同一目錄底下後，`python common.py 姓名_年級.md 姓名_年級.md`，輸入檔案可輸入多個
+5. 若已有輸出檔案可改為`python common.py out.md 姓名_年級.md`
 6. 將輸出檔案out.md以markdown格式打開
 7. 即可將課表截圖保存
