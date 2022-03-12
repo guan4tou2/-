@@ -25,7 +25,7 @@ ClassWeek/Period(*Indicating Class Conflict)
 ....
 ```
 
-# NFU課表生成器
+# NFU共同課表生成器
 1. 將common.py下載
 2. 修改color內的hex色碼可更改課程種類的顏色，可添加或刪減grades與color的內容
 3. 將使用main.py做出的課表檔案改名為`姓名_年級.md`的格式，年級為大幾or碩幾
