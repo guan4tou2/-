@@ -1,11 +1,11 @@
-# NFU-school-timetable-generator
-NFU課表生成器
+# NFU課表生成器
 
 1. 將main.py下載
-2. 將nfu ecare內的選課結果表格複製後儲存成txt檔案
-3. 檔案存放於同一目錄底下後，`python main.py file.txt`
-4. 將輸出檔案out.md以markdown格式打開
-5. 即可將課表截圖保存
+2. 修改color內的hex色碼可更改課程種類的顏色
+3. 將nfu ecare內的選課結果表格複製後儲存成txt檔案
+4. 檔案存放於同一目錄底下後，`python main.py file.txt`
+5. 將輸出檔案out.md以markdown格式打開
+6. 即可將課表截圖保存
 
 表格內容
 ```
@@ -24,3 +24,12 @@ ClassWeek/Period(*Indicating Class Conflict)
 .....
 ....
 ```
+
+# NFU課表生成器
+1. 將common.py下載
+2. 修改color內的hex色碼可更改課程種類的顏色，可添加或刪減grades與color的內容
+3. 將使用main.py做出的課表檔案改名為`姓名_年級.md`的格式，年級為大幾or碩幾
+4. 檔案存放於同一目錄底下後，`python main.py 姓名_年級.md 姓名_年級.md`，輸入檔案可輸入多個
+5. 若已有輸出檔案可改為`python main.py out.md 姓名_年級.md`
+6. 將輸出檔案out.md以markdown格式打開
+7. 即可將課表截圖保存
